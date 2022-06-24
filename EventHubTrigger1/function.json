@@ -1,0 +1,22 @@
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "type": "eventHubTrigger",
+      "name": "event",
+      "direction": "in",
+      "eventHubName": "samples-workitems",
+      "connection": "EventHubConnection",
+      "cardinality": "one",
+      "consumerGroup": "$Default"
+    },
+    {
+      "name": "message",
+      "type": "table",
+      "tableName": "eventdata",
+      "partitionKey": "message",
+      "connection": "CosmosDBConnection",
+      "direction": "out"
+    }
+  ]
+}
